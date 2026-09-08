@@ -1,0 +1,75 @@
+{
+    "name": "jeffersongoncalves/laravel-sendgrid",
+    "description": "Laravel wrapper for SendGrid's Web API v3",
+    "keywords": [
+        "jeffersongoncalves",
+        "laravel",
+        "laravel-sendgrid",
+        "sendgrid",
+        "api",
+        "client",
+        "email",
+        "transactional",
+        "marketing",
+        "campaigns"
+    ],
+    "homepage": "https://github.com/jeffersongoncalves/laravel-sendgrid",
+    "license": "MIT",
+    "type": "library",
+    "authors": [
+        {
+            "name": "Jefferson Simão Gonçalves",
+            "email": "gerson.simao.92@gmail.com",
+            "role": "Developer"
+        }
+    ],
+    "require": {
+        "php": "^8.2",
+        "illuminate/http": "^12.0|^13.0",
+        "illuminate/support": "^12.0|^13.0",
+        "spatie/laravel-package-tools": "^1.16"
+    },
+    "require-dev": {
+        "larastan/larastan": "^3.0",
+        "laravel/pint": "^1.21",
+        "orchestra/testbench": "^10.0|^11.0",
+        "pestphp/pest": "^3.0|^4.0",
+        "pestphp/pest-plugin-laravel": "^3.0|^4.0"
+    },
+    "autoload": {
+        "psr-4": {
+            "JeffersonGoncalves\\LaravelSendgrid\\": "src/"
+        }
+    },
+    "autoload-dev": {
+        "psr-4": {
+            "JeffersonGoncalves\\LaravelSendgrid\\Tests\\": "tests/"
+        }
+    },
+    "scripts": {
+        "post-autoload-dump": "@php ./vendor/bin/testbench package:discover --ansi",
+        "test": "vendor/bin/pest",
+        "test-coverage": "vendor/bin/pest --coverage",
+        "format": "vendor/bin/pint",
+        "analyse": "vendor/bin/phpstan analyse"
+    },
+    "config": {
+        "sort-packages": true,
+        "allow-plugins": {
+            "pestphp/pest-plugin": true,
+            "phpstan/extension-installer": true
+        }
+    },
+    "extra": {
+        "laravel": {
+            "providers": [
+                "JeffersonGoncalves\\LaravelSendgrid\\SendgridServiceProvider"
+            ],
+            "aliases": {
+                "Sendgrid": "JeffersonGoncalves\\LaravelSendgrid\\Facades\\Sendgrid"
+            }
+        }
+    },
+    "minimum-stability": "dev",
+    "prefer-stable": true
+}
